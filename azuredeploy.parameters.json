@@ -33,7 +33,7 @@
       "value": "2028b20d-0f43-4d65-bf77-ab97a513f6dc"
     },
     "dataLakeAccountName": {
-      "value": "DLEHC"
+      "value": "cmpocdatalakestorage"
     },
     "dataLakeFolderPath": {
       "value": "DLEHCF"
