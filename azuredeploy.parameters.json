@@ -3,10 +3,10 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "eventHubNamespaceName": {
-      "value": "GEN-UNIQUE-12"
+      "value": "EHNSDL"
     },
     "eventHubName": {
-      "value": "GEN-UNIQUE"
+      "value": "EHDL"
     },
     "messageRetentionInDays": {
       "value": 1
@@ -27,16 +27,16 @@
       "value": 314572800
     },
     "captureNameFormat": {
-      "value": "GEN-UNIQUE"
+      "value": "EHCEDL"
     },
     "subscriptionId": {
-      "value": "GEN-UNIQUE"
+      "value": "CARMAX"
     },
     "dataLakeAccountName": {
-      "value": "GEN-UNIQUE"
+      "value": "DLEHC"
     },
     "dataLakeFolderPath": {
-      "value": "GEN-UNIQUE"
+      "value": "DLEHCF"
     }
   }
 }
