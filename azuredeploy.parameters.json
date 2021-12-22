@@ -27,10 +27,10 @@
       "value": 314572800
     },
     "captureNameFormat": {
-      "value": "EHCEDL"
+      "value": "{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}"
     },
     "subscriptionId": {
-      "value": "CARMAX"
+      "value": "2028b20d-0f43-4d65-bf77-ab97a513f6dc"
     },
     "dataLakeAccountName": {
       "value": "DLEHC"
