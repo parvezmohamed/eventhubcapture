@@ -1,4 +1,9 @@
 jobs:
     - job: Devjobs
       steps:
+      - task: PublishPipelineArtifact@0,  
+        displayName: "Publish distribtuion"
+        inputs: 
+            artifactName: 'artifact' 
+            targetPath: 'dist'
       - template: "steps/devstep.yml"
