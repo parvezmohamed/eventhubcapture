@@ -2,4 +2,4 @@ stages:
 - stage: Dev 
   displayName: "Deploy to Dev" 
   jobs: 
-  - template: jobs/devjobs.yml
+  - template: "../jobs/devjobs.yml"
