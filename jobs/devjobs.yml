@@ -1,0 +1,4 @@
+jobs:
+    - job: Devjobs
+      steps:
+      - template: "steps/devstep.yml"
