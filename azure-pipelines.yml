@@ -1,0 +1,68 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+- stage: Build
+  jobs:
+    - job: Buildjob
+      steps:
+        - task: AzureResourceManagerTemplateDeployment@3
+          inputs:
+            deploymentScope: 'Resource Group'
+            azureResourceManagerConnection: 'Pay-As-You-Go(2028b20d-0f43-4d65-bf77-ab97a513f6dc)'
+            subscriptionId: '2028b20d-0f43-4d65-bf77-ab97a513f6dc'
+            action: 'Create Or Update Resource Group'
+            resourceGroupName: 'CarMax'
+            location: 'East US'
+            templateLocation: 'Linked artifact'
+            csmFile: 'azuredeploy.json'
+            csmParametersFile: 'build-azuredeploy.parameters.json'
+            deploymentMode: 'Incremental'
+
+- stage: DEV
+  dependsOn: Build
+  condition: and(succeeded(),not(eq(variables['Build.Reason'], 'PullRequest')))
+  jobs:
+    - job: Devjob
+      steps:
+        - task: AzureResourceManagerTemplateDeployment@3
+          inputs:
+            deploymentScope: 'Resource Group'
+            azureResourceManagerConnection: 'Pay-As-You-Go(2028b20d-0f43-4d65-bf77-ab97a513f6dc)'
+            subscriptionId: '2028b20d-0f43-4d65-bf77-ab97a513f6dc'
+            action: 'Create Or Update Resource Group'
+            resourceGroupName: 'CarMax'
+            location: 'East US'
+            templateLocation: 'Linked artifact'
+            csmFile: 'azuredeploy.json'
+            csmParametersFile: 'dev-azuredeploy.parameters.json'
+            deploymentMode: 'Incremental'
+- stage: QA
+  dependsOn: DEV
+  condition: and(succeeded(),not(eq(variables['Build.Reason'], 'PullRequest')))
+  jobs:
+    - job: QAjob
+      steps:
+      - task: AzureResourceManagerTemplateDeployment@3
+        inputs:
+          deploymentScope: 'Resource Group'
+          azureResourceManagerConnection: 'Pay-As-You-Go(2028b20d-0f43-4d65-bf77-ab97a513f6dc)'
+          subscriptionId: '2028b20d-0f43-4d65-bf77-ab97a513f6dc'
+          action: 'Create Or Update Resource Group'
+          resourceGroupName: 'CarMax'
+          location: 'East US'
+          templateLocation: 'Linked artifact'
+          csmFile: 'azuredeploy.json'
+          csmParametersFile: 'qa-azuredeploy.parameters.json'
+          deploymentMode: 'Incremental'
+              
+
+
