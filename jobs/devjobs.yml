@@ -6,4 +6,4 @@ jobs:
         inputs: 
             artifactName: 'artifact' 
             targetPath: 'dist'
-      - template: "steps/devstep.yml"
+      - template: "../steps/devstep.yml"
