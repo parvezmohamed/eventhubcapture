@@ -8,6 +8,6 @@ steps:
     resourceGroupName: 'CarMax'
     location: 'East US'
     templateLocation: 'Linked artifact'
-    csmFile: 'Azure Resources/azuredeploy.json'
-    csmParametersFile: 'Azure Resources/azuredeploy.parameters.json'
+    csmFile: '../Azure Resources/azuredeploy.json'
+    csmParametersFile: '../Azure Resources/azuredeploy.parameters.json'
     deploymentMode: 'Incremental'
