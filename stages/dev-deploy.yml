@@ -1,0 +1,5 @@
+stages:  
+- stage: Dev 
+  displayName: "Deploy to Dev" 
+  jobs: 
+  - template: ../jobs/build-package.yml 
